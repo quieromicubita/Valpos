@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton keySettingsBtnImg;
     ImageButton keyDotBtnImg;
     Animation animAlfa;
+    TextView entraCodigoTxtView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         keyDoneBtnImg = findViewById(R.id.KeyDoneImgBtn);
         keySettingsBtnImg = findViewById(R.id.KeySettingsImgBtn);
         keyDotBtnImg = findViewById(R.id.KeyDotImgBtn);
+        entraCodigoTxtView = findViewById(R.id.EntraCodigoTxtView);
         animAlfa = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
         btnOnePressed();
         btnTwoPressed();
@@ -73,7 +76,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyOneBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "ONE", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("1");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "1");
                     }
                 }
         );
@@ -87,7 +94,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyTwoBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "TWO", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("2");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "2");
                     }
                 }
         );
@@ -100,7 +111,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyThreeBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "THREE", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("3");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "3");
                     }
                 }
         );
@@ -113,7 +128,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyFourBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "FOUR", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("4");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "4");
                     }
                 }
         );
@@ -126,7 +145,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyFiveBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "FIVE", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("5");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "5");
                     }
                 }
         );
@@ -139,7 +162,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keySixBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "SIX", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("6");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "6");
                     }
                 }
         );
@@ -152,7 +179,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keySevenBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "SEVEN", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("7");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "7");
                     }
                 }
         );
@@ -165,7 +196,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyEightBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "EIGHT", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("8");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "8");
                     }
                 }
         );
@@ -178,7 +213,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyNineBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "NINE", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("9");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "9");
                     }
                 }
         );
@@ -191,7 +230,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyZeroBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "ZERO", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText("0");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + "0");
                     }
                 }
         );
@@ -204,7 +247,13 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyDelBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "DEL", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals(""))
+                            Toast.makeText(MainActivity.this, "Nothing to delete", Toast.LENGTH_SHORT).show();
+                        else
+                            txtviewcharsequence = txtviewcharsequence.toString().substring(0,
+                                txtviewcharsequence.length() - 1);
+                            entraCodigoTxtView.setText(txtviewcharsequence);
                     }
                 }
         );
@@ -243,7 +292,11 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
                         keyDotBtnImg.setActivated(true);
-                        Toast.makeText(MainActivity.this, "DOT", Toast.LENGTH_LONG).show();
+                        CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
+                        if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
+                            entraCodigoTxtView.setText(".");
+                        else
+                            entraCodigoTxtView.setText(txtviewcharsequence + ".");
                     }
                 }
         );
