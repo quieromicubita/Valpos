@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
         keyDotBtnImg = findViewById(R.id.KeyDotImgBtn);
         entraCodigoTxtView = findViewById(R.id.EntraCodigoTxtView);
         animAlfa = AnimationUtils.loadAnimation(this, R.anim.btn_anim);
+
         btnOnePressed();
         btnTwoPressed();
         btnThreePressed();
@@ -75,7 +76,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyOneBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("1");
@@ -93,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyTwoBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("2");
@@ -104,13 +103,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button three
     public void btnThreePressed(){
         keyThreeBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyThreeBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("3");
@@ -121,13 +120,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button four
     public void btnFourPressed(){
         keyFourBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyFourBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("4");
@@ -138,13 +137,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button five
     public void btnFivePressed(){
         keyFiveBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyFiveBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("5");
@@ -155,13 +154,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button six
     public void btnSixPressed(){
         keySixBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keySixBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("6");
@@ -172,13 +171,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button seven
     public void btnSevenPressed(){
         keySevenBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keySevenBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("7");
@@ -189,13 +188,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button eight
     public void btnEightPressed(){
         keyEightBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyEightBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("8");
@@ -206,13 +205,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button nine
     public void btnNinePressed(){
         keyNineBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyNineBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("9");
@@ -223,13 +222,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button zero
     public void btnZeroPressed(){
         keyZeroBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyZeroBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText("0");
@@ -240,13 +239,13 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button del
     public void btnDelPressed(){
         keyDelBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyDelBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals(""))
                             Toast.makeText(MainActivity.this, "Nothing to delete", Toast.LENGTH_SHORT).show();
@@ -259,39 +258,39 @@ public class MainActivity extends AppCompatActivity {
         );
     }
 
+    //Button done
     public void btnDonePressed(){
         keyDoneBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyDoneBtnImg.setActivated(true);
                         Toast.makeText(MainActivity.this, "DONE", Toast.LENGTH_LONG).show();
                     }
                 }
         );
     }
 
+    //Button settings
     public void btnSettingsPressed(){
         keySettingsBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keySettingsBtnImg.setActivated(true);
                         Toast.makeText(MainActivity.this, "SETTINGS", Toast.LENGTH_LONG).show();
                     }
                 }
         );
     }
 
+    //Button dot
     public void btnDotPressed(){
         keyDotBtnImg.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        keyDotBtnImg.setActivated(true);
                         CharSequence txtviewcharsequence = entraCodigoTxtView.getText();
                         if(txtviewcharsequence.toString().equals("ENTER ACCESS CODE"))
                             entraCodigoTxtView.setText(".");
