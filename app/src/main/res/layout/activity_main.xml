@@ -16,7 +16,7 @@
 
         <TextView
             android:id="@+id/EntraCodigoTxtView"
-            android:text="CÓDIGO DE ACCESO"
+            android:text="ENTER ACCESS CODE"
             android:textColor="@android:color/white"
             android:textSize="36sp"
             android:layout_centerInParent="true"
@@ -58,12 +58,14 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np1"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyOneImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:longClickable="false"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np1" />
 
             </LinearLayout>
 
@@ -89,12 +91,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np2"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyTwoImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np2" />
 
             </LinearLayout>
 
@@ -120,12 +123,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np3"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyThreeImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np3" />
 
             </LinearLayout>
 
@@ -151,12 +155,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/npdel"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyDelImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/npdel" />
 
             </LinearLayout>
 
@@ -184,12 +189,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np4"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyFourImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np4" />
 
             </LinearLayout>
 
@@ -215,12 +221,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np5"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyFiveImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np5" />
 
             </LinearLayout>
 
@@ -246,12 +253,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np6"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeySixImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np6" />
 
             </LinearLayout>
 
@@ -277,12 +285,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/npdone"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyDoneImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/npdone" />
 
             </LinearLayout>
 
@@ -310,12 +319,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np7"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeySevenImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np7" />
 
             </LinearLayout>
 
@@ -341,12 +351,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np8"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyEightImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np8" />
 
             </LinearLayout>
 
@@ -372,12 +383,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np9"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyNineImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np9" />
 
             </LinearLayout>
 
@@ -403,12 +415,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/npsettings"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeySettingsImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/npsettings" />
 
             </LinearLayout>
 
@@ -467,12 +480,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/np0"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyZeroImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/np0" />
 
             </LinearLayout>
 
@@ -498,12 +512,13 @@
                 android:layout_height="match_parent">
 
                 <ImageButton
-                    android:background="@color/colorPrimary"
-                    android:src="@drawable/npdot"
-                    android:layout_gravity="center_horizontal"
-                    android:scaleType="fitXY"
+                    android:id="@+id/KeyDotImgBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/colorPrimary"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/npdot" />
 
             </LinearLayout>
 
