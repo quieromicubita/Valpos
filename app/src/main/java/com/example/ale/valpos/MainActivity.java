@@ -1,5 +1,6 @@
 package com.example.ale.valpos;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -435,11 +436,15 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         while(rawopername.moveToNext()){
-                            String name = rawopername.getString(0);
-                            Toast.makeText(MainActivity.this, "Welcome " + name,
-                                    Toast.LENGTH_LONG).show();
+                            operador.setNemo(rawopername.getString(0));
                         }
 
+                        String nombreoperador = operador.getNemo();
+                        Toast.makeText(MainActivity.this, "Welcome " + nombreoperador,
+                                Toast.LENGTH_LONG).show();
+                        Intent listarcuentas = new Intent(getApplicationContext(), ListaCuentasActivity.class);
+                        listarcuentas.putExtra("NOMBREOPERADOR", nombreoperador);
+                        startActivity(listarcuentas);
                     }
                 }
         );
