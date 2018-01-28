@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
         btnZeroPressed();
         showAllOperatorProfiles();
         valuesToOperadores();
+        insertOperatorsInDB();
 
         setOperadoresPerfiles(operadoresPerfiles1, operadoresPerfiles2, operadoresPerfiles3,
                  operadoresPerfiles4, operadoresPerfiles5, operadoresPerfiles6
@@ -110,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        /*
+                Show all Operator Profiles for testing purposes
         StringBuffer buffer = new StringBuffer();
         while (operatorprofilecursor.moveToNext()){
             buffer.append("ID: "+ operatorprofilecursor.getString(0)+"\n");
@@ -121,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Show all data
         showMessage("Data", buffer.toString());
+        */
     }
 
     public void showMessage(String title, String Message){
@@ -219,6 +223,11 @@ public class MainActivity extends AppCompatActivity {
             informatico.setCodPerfil("1");
             informatico.setHayQueBorrarlo(hayqueborrarlo);
         }
+    }
+
+    public void insertOperatorsInDB(){
+        mDataBaseHelper.insertOperator(cajero);
+        mDataBaseHelper.insertOperator(informatico);
     }
 
     //Button one
@@ -417,7 +426,20 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
-                        Toast.makeText(MainActivity.this, "DONE", Toast.LENGTH_LONG).show();
+                        Operador operador = new Operador();
+                        operador.setContrasenha(entraCodigoTxtView.getText().toString());
+                        Cursor rawopername = mDataBaseHelper.getNameOfOperator(operador);
+                        if(rawopername.getCount() == 0){
+                            showMessage("Error", "Name not found");
+                            return;
+                        }
+
+                        while(rawopername.moveToNext()){
+                            String name = rawopername.getString(0);
+                            Toast.makeText(MainActivity.this, "Welcome " + name,
+                                    Toast.LENGTH_LONG).show();
+                        }
+
                     }
                 }
         );

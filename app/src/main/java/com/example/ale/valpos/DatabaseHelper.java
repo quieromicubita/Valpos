@@ -182,7 +182,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-
     public boolean insertOperadorPerfil(OperadoresPerfiles operperfil){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentvalues = new ContentValues();
@@ -221,6 +220,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    */
+
     //Tratar de recoger función como argumento (String[] args)
     // para múltiples nombres
     public Cursor getNameOfOperator(Operador operador){
@@ -234,7 +235,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
         return res;
     }
-    */
 
     public Cursor getPerfilDeOperador(String codperfil){
         SQLiteDatabase db = this.getWritableDatabase();
