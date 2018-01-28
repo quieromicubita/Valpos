@@ -203,14 +203,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    /*
     public Cursor getAllOperators(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_OPERADORES, null);
         return res;
     }
 
-    */
     public Cursor getItemsFromCuenta(CuentasItems cuentasitems){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "

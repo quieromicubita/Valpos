@@ -93,23 +93,26 @@ public class MainActivity extends AppCompatActivity {
         btnSettingsPressed();
         btnDotPressed();
         btnZeroPressed();
-        showAllOperatorProfiles();
-        valuesToOperadores();
-        //insertOperatorsInDB();
-        //insertCuentasItems();
+        insertProfilesInDB();
+        insertOperatorsInDB();
+        insertCuentasItemsInDB();
+        //showAllOperatorProfiles();
+    }
 
-        /*
-        setOperadoresPerfiles(operadoresPerfiles1, operadoresPerfiles2, operadoresPerfiles3,
-                 operadoresPerfiles4, operadoresPerfiles5, operadoresPerfiles6
-        );
+    public void insertProfilesInDB(){
+        Cursor hayperfiles = mDataBaseHelper.getOperatorProfile();
+        if(hayperfiles.getCount()==0){
+            setOperadoresPerfiles(operadoresPerfiles1, operadoresPerfiles2, operadoresPerfiles3,
+                    operadoresPerfiles4, operadoresPerfiles5, operadoresPerfiles6
+            );
+            mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles1);
+            mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles2);
+            mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles3);
+            mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles4);
+            mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles5);
+            mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles6);
+        }else return;
 
-        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles1);
-        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles2);
-        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles3);
-        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles4);
-        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles5);
-        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles6);
-        */
     }
 
     public void showAllOperatorProfiles(){
@@ -235,11 +238,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void insertOperatorsInDB(){
-        mDataBaseHelper.insertOperator(cajero);
-        mDataBaseHelper.insertOperator(informatico);
+        Cursor hayoperadores = mDataBaseHelper.getAllOperators();
+        if(hayoperadores.getCount()==0){
+            valuesToOperadores();
+            mDataBaseHelper.insertOperator(cajero);
+            mDataBaseHelper.insertOperator(informatico);
+        }else return;
+
     }
 
-    public void insertCuentasItems(){
+    public void assignValuesToCuentas(){
         UnCuentasItems.setNumCuenta("90");
         UnCuentasItems.setNumItem("16");
         UnCuentasItems.setCodPLU("306");
@@ -299,10 +307,16 @@ public class MainActivity extends AppCompatActivity {
         TresCuentasItems.setCodAreaImpCocina("905");
         TresCuentasItems.setCantImpresionesEnCocina("13");
         TresCuentasItems.setSecuencial("3");
+    }
 
-        mDataBaseHelper.insertCuentasItems(UnCuentasItems);
-        mDataBaseHelper.insertCuentasItems(DosCuentasItems);
-        mDataBaseHelper.insertCuentasItems(TresCuentasItems);
+    public void insertCuentasItemsInDB(){
+        Cursor haycuentas = mDataBaseHelper.getCuentas();
+        if(haycuentas.getCount()==0){
+            assignValuesToCuentas();
+            mDataBaseHelper.insertCuentasItems(UnCuentasItems);
+            mDataBaseHelper.insertCuentasItems(DosCuentasItems);
+            mDataBaseHelper.insertCuentasItems(TresCuentasItems);
+        }else return;
     }
 
     //Button one
