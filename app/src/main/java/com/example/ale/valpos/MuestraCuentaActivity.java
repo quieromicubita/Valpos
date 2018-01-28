@@ -1,18 +1,23 @@
 package com.example.ale.valpos;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MuestraCuentaActivity extends AppCompatActivity {
     DatabaseHelper lcDatabaseHelper;
     CuentasItems cuentasItems;
     TextView muestraCuentaTxtView;
     Operador lcOperador;
+    Button scanBrCdBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +30,9 @@ public class MuestraCuentaActivity extends AppCompatActivity {
         String idx = getIntent().getStringExtra("IDX");
         lcOperador.setNemo(getIntent().getStringExtra("NOMBREOPERADOR"));
         cuentasItems = new CuentasItems(idx);
+        scanBrCdBtn = findViewById(R.id.ScanBrCdBtn);
         listaItems();
+        scanCode();
     }
 
     public void listaItems(){
@@ -66,5 +73,18 @@ public class MuestraCuentaActivity extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(Message);
         builder.show();
+    }
+
+    public void scanCode(){
+        scanBrCdBtn.setOnClickListener(
+                new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v){
+                        Toast.makeText(MuestraCuentaActivity.this, "Click al botón", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(getApplicationContext(), BarcodeActivity.class);
+                        startActivity(intent);
+                    }
+                }
+        );
     }
 }

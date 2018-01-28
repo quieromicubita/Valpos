@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ale.valpos">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera2"/>
+    <uses-feature android:name="android.hardware.camera2.autofocus"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListaCuentasActivity" />
-        <activity android:name=".MuestraCuentaActivity"></activity>
+        <activity android:name=".MuestraCuentaActivity" />
+        <activity android:name=".BarcodeActivity"></activity>
     </application>
 
 </manifest>
