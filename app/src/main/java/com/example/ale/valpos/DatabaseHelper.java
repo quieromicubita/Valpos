@@ -181,6 +181,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
+    */
 
     public boolean insertOperadorPerfil(OperadoresPerfiles operperfil){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -197,6 +198,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    //Obtener listado de perfiles por ahora, luego pasar operador como parametro
+    public Cursor getOperatorProfile(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_PERFILES_OPERADORES, null);
+        return res;
+    }
+
+    /*
     public Cursor getAllOperators(){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_OPERADORES, null);

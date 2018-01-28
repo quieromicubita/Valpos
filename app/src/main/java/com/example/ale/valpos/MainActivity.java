@@ -1,5 +1,7 @@
 package com.example.ale.valpos;
 
+import android.database.Cursor;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,11 +30,25 @@ public class MainActivity extends AppCompatActivity {
     ImageButton keyDotBtnImg;
     Animation animAlfa;
     TextView entraCodigoTxtView;
+    OperadoresPerfiles operadoresPerfiles1;
+    OperadoresPerfiles operadoresPerfiles2;
+    OperadoresPerfiles operadoresPerfiles3;
+    OperadoresPerfiles operadoresPerfiles4;
+    OperadoresPerfiles operadoresPerfiles5;
+    OperadoresPerfiles operadoresPerfiles6;
+    DatabaseHelper mDataBaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mDataBaseHelper = new DatabaseHelper(this);
+        operadoresPerfiles1 = new OperadoresPerfiles();
+        operadoresPerfiles2 = new OperadoresPerfiles();
+        operadoresPerfiles3 = new OperadoresPerfiles();
+        operadoresPerfiles4 = new OperadoresPerfiles();
+        operadoresPerfiles5 = new OperadoresPerfiles();
+        operadoresPerfiles6 = new OperadoresPerfiles();
         keyOneBtnImg = findViewById(R.id.KeyOneImgBtn);
         keyTwoBtnImg = findViewById(R.id.KeyTwoImgBtn);
         keyThreeBtnImg = findViewById(R.id.KeyThreeImgBtn);
@@ -66,8 +82,94 @@ public class MainActivity extends AppCompatActivity {
         btnSettingsPressed();
         btnDotPressed();
         btnZeroPressed();
+        showAllOperatorProfiles();
+
+        setOperadoresPerfiles(operadoresPerfiles1, operadoresPerfiles2, operadoresPerfiles3,
+                 operadoresPerfiles4, operadoresPerfiles5, operadoresPerfiles6
+        );
+
+        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles1);
+        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles2);
+        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles3);
+        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles4);
+        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles5);
+        mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles6);
+
     }
 
+    public void showAllOperatorProfiles(){
+        Cursor operatorprofilecursor = mDataBaseHelper.getOperatorProfile();
+        if(operatorprofilecursor.getCount() == 0){
+            // Show message
+            showMessage("Error", "No data found");
+            return;
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while (operatorprofilecursor.moveToNext()){
+            buffer.append("ID: "+ operatorprofilecursor.getString(0)+"\n");
+            buffer.append("Descripción: "+ operatorprofilecursor.getString(1)+"\n");
+            buffer.append("Permisos: "+ operatorprofilecursor.getString(2)+"\n");
+            buffer.append("Estado: "+ operatorprofilecursor.getString(3)+"\n");
+            buffer.append("Hay que borrarlo: "+ operatorprofilecursor.getString(4)+"\n\n");
+        }
+
+        // Show all data
+        showMessage("Data", buffer.toString());
+    }
+
+    public void showMessage(String title, String Message){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(Message);
+        builder.show();
+    }
+
+    //Assign values to OperadoresPerfiles
+    public void setOperadoresPerfiles(OperadoresPerfiles operadoresPerfiles1,
+                                      OperadoresPerfiles operadoresPerfiles2,
+                                      OperadoresPerfiles operadoresPerfiles3,
+                                      OperadoresPerfiles operadoresPerfiles4,
+                                      OperadoresPerfiles operadoresPerfiles5,
+                                      OperadoresPerfiles operadoresPerfiles6) {
+
+        this.operadoresPerfiles1 = operadoresPerfiles1;
+        operadoresPerfiles1.setDescripcion("Cajero");
+        operadoresPerfiles1.setPermisos("26591");
+        operadoresPerfiles1.setEstado("0");
+        operadoresPerfiles1.setHayQueBorrarlo("0");
+
+        this.operadoresPerfiles2 = operadoresPerfiles2;
+        operadoresPerfiles2.setDescripcion("Supervisor");
+        operadoresPerfiles2.setPermisos("425983");
+        operadoresPerfiles2.setEstado("0");
+        operadoresPerfiles2.setHayQueBorrarlo("0");
+
+        this.operadoresPerfiles3 = operadoresPerfiles3;
+        operadoresPerfiles3.setDescripcion("Dependiente");
+        operadoresPerfiles3.setPermisos("256");
+        operadoresPerfiles3.setEstado("0");
+        operadoresPerfiles3.setHayQueBorrarlo("0");
+
+        this.operadoresPerfiles4 = operadoresPerfiles4;
+        operadoresPerfiles4.setDescripcion("Informático");
+        operadoresPerfiles4.setPermisos("524287");
+        operadoresPerfiles4.setEstado("0");
+        operadoresPerfiles4.setHayQueBorrarlo("0");
+
+        this.operadoresPerfiles5 = operadoresPerfiles5;
+        operadoresPerfiles5.setDescripcion("Dependiente/Cajero");
+        operadoresPerfiles5.setPermisos("157663");
+        operadoresPerfiles5.setEstado("0");
+        operadoresPerfiles5.setHayQueBorrarlo("0");
+
+        this.operadoresPerfiles6 = operadoresPerfiles6;
+        operadoresPerfiles6.setDescripcion("Cierre de Turno");
+        operadoresPerfiles6.setPermisos("16480");
+        operadoresPerfiles6.setEstado("0");
+        operadoresPerfiles6.setHayQueBorrarlo("0");
+    }
 
     //Button one
     public void btnOnePressed(){
