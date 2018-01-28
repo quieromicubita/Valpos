@@ -210,6 +210,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
+    */
     public Cursor getItemsFromCuenta(CuentasItems cuentasitems){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from "
@@ -218,8 +219,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + cuentasitems.getIdx(), null);
         return res;
     }
-
-    */
 
     //Tratar de recoger función como argumento (String[] args)
     // para múltiples nombres

@@ -95,9 +95,10 @@ public class MainActivity extends AppCompatActivity {
         btnZeroPressed();
         showAllOperatorProfiles();
         valuesToOperadores();
-        insertOperatorsInDB();
-        insertCuentasItems();
+        //insertOperatorsInDB();
+        //insertCuentasItems();
 
+        /*
         setOperadoresPerfiles(operadoresPerfiles1, operadoresPerfiles2, operadoresPerfiles3,
                  operadoresPerfiles4, operadoresPerfiles5, operadoresPerfiles6
         );
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
         mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles4);
         mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles5);
         mDataBaseHelper.insertOperadorPerfil(operadoresPerfiles6);
-
+        */
     }
 
     public void showAllOperatorProfiles(){
