@@ -118,7 +118,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    /*
     public boolean validarContrasenhaOperador(Operador operador){
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select "
@@ -164,7 +163,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-    */
+
     public boolean insertOperator(Operador operador){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentvalues = new ContentValues();
@@ -250,7 +249,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return perfilres;
     }
 
-    /*
+
     //Pasar Codigo Operador como parámetro
     public Cursor getCuentas(){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -258,6 +257,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cuentas;
     }
 
+    /*
     public boolean updateData(Operador operador){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentvalues = new ContentValues();

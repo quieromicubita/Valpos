@@ -40,11 +40,17 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHelper mDataBaseHelper;
     Operador cajero;
     Operador informatico;
+    CuentasItems UnCuentasItems;
+    CuentasItems DosCuentasItems;
+    CuentasItems TresCuentasItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        UnCuentasItems = new CuentasItems();
+        DosCuentasItems = new CuentasItems();
+        TresCuentasItems = new CuentasItems();
         mDataBaseHelper = new DatabaseHelper(this);
         cajero = new Operador();
         informatico = new Operador();
@@ -90,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         showAllOperatorProfiles();
         valuesToOperadores();
         insertOperatorsInDB();
+        insertCuentasItems();
 
         setOperadoresPerfiles(operadoresPerfiles1, operadoresPerfiles2, operadoresPerfiles3,
                  operadoresPerfiles4, operadoresPerfiles5, operadoresPerfiles6
@@ -229,6 +236,72 @@ public class MainActivity extends AppCompatActivity {
     public void insertOperatorsInDB(){
         mDataBaseHelper.insertOperator(cajero);
         mDataBaseHelper.insertOperator(informatico);
+    }
+
+    public void insertCuentasItems(){
+        UnCuentasItems.setNumCuenta("90");
+        UnCuentasItems.setNumItem("16");
+        UnCuentasItems.setCodPLU("306");
+        UnCuentasItems.setCantidad("5");
+        UnCuentasItems.setPVP("8");
+        UnCuentasItems.setImpuesto("20");
+        UnCuentasItems.setImporte("9");
+        UnCuentasItems.setEstado1("8");
+        UnCuentasItems.setEstado2("3");
+        UnCuentasItems.setCodModificador("16");
+        UnCuentasItems.setCodPCPOSRebaja("26");
+        UnCuentasItems.setAtributosPLU("30");
+        UnCuentasItems.setBarCode("8946");
+        UnCuentasItems.setTara("41");
+        UnCuentasItems.setValorDeLaTara("56");
+        UnCuentasItems.setImporteSinTara("22");
+        UnCuentasItems.setCodAreaImpCocina("90");
+        UnCuentasItems.setCantImpresionesEnCocina("2");
+        UnCuentasItems.setSecuencial("1");
+
+        DosCuentasItems.setNumCuenta("30");
+        DosCuentasItems.setNumItem("80");
+        DosCuentasItems.setCodPLU("306");
+        DosCuentasItems.setCantidad("5");
+        DosCuentasItems.setPVP("8");
+        DosCuentasItems.setImpuesto("20");
+        DosCuentasItems.setImporte("3");
+        DosCuentasItems.setEstado1("8");
+        DosCuentasItems.setEstado2("3");
+        DosCuentasItems.setCodModificador("16");
+        DosCuentasItems.setCodPCPOSRebaja("20");
+        DosCuentasItems.setAtributosPLU("30");
+        DosCuentasItems.setBarCode("894");
+        DosCuentasItems.setTara("41");
+        DosCuentasItems.setValorDeLaTara("54");
+        DosCuentasItems.setImporteSinTara("22");
+        DosCuentasItems.setCodAreaImpCocina("902");
+        DosCuentasItems.setCantImpresionesEnCocina("3");
+        DosCuentasItems.setSecuencial("8");
+
+        TresCuentasItems.setNumCuenta("42");
+        TresCuentasItems.setNumItem("34");
+        TresCuentasItems.setCodPLU("306");
+        TresCuentasItems.setCantidad("54");
+        TresCuentasItems.setPVP("8");
+        TresCuentasItems.setImpuesto("202");
+        TresCuentasItems.setImporte("95");
+        TresCuentasItems.setEstado1("8");
+        TresCuentasItems.setEstado2("3");
+        TresCuentasItems.setCodModificador("162");
+        TresCuentasItems.setCodPCPOSRebaja("26");
+        TresCuentasItems.setAtributosPLU("3035");
+        TresCuentasItems.setBarCode("8946");
+        TresCuentasItems.setTara("41");
+        TresCuentasItems.setValorDeLaTara("5689");
+        TresCuentasItems.setImporteSinTara("223");
+        TresCuentasItems.setCodAreaImpCocina("905");
+        TresCuentasItems.setCantImpresionesEnCocina("13");
+        TresCuentasItems.setSecuencial("3");
+
+        mDataBaseHelper.insertCuentasItems(UnCuentasItems);
+        mDataBaseHelper.insertCuentasItems(DosCuentasItems);
+        mDataBaseHelper.insertCuentasItems(TresCuentasItems);
     }
 
     //Button one
@@ -440,10 +513,11 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                         String nombreoperador = operador.getNemo();
+                        String contrasenha = operador.getContrasenha();
                         Toast.makeText(MainActivity.this, "Welcome " + nombreoperador,
                                 Toast.LENGTH_LONG).show();
                         Intent listarcuentas = new Intent(getApplicationContext(), ListaCuentasActivity.class);
-                        listarcuentas.putExtra("NOMBREOPERADOR", nombreoperador);
+                        listarcuentas.putExtra("CONTRASENHA", contrasenha);
                         startActivity(listarcuentas);
                     }
                 }
