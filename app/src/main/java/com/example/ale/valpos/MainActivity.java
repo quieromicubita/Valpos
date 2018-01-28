@@ -37,12 +37,16 @@ public class MainActivity extends AppCompatActivity {
     OperadoresPerfiles operadoresPerfiles5;
     OperadoresPerfiles operadoresPerfiles6;
     DatabaseHelper mDataBaseHelper;
+    Operador cajero;
+    Operador informatico;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mDataBaseHelper = new DatabaseHelper(this);
+        cajero = new Operador();
+        informatico = new Operador();
         operadoresPerfiles1 = new OperadoresPerfiles();
         operadoresPerfiles2 = new OperadoresPerfiles();
         operadoresPerfiles3 = new OperadoresPerfiles();
@@ -83,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         btnDotPressed();
         btnZeroPressed();
         showAllOperatorProfiles();
+        valuesToOperadores();
 
         setOperadoresPerfiles(operadoresPerfiles1, operadoresPerfiles2, operadoresPerfiles3,
                  operadoresPerfiles4, operadoresPerfiles5, operadoresPerfiles6
@@ -169,6 +174,51 @@ public class MainActivity extends AppCompatActivity {
         operadoresPerfiles6.setPermisos("16480");
         operadoresPerfiles6.setEstado("0");
         operadoresPerfiles6.setHayQueBorrarlo("0");
+    }
+
+    //Assign values to Operadores
+    public void valuesToOperadores(){
+
+       Cursor rawcajero =  mDataBaseHelper.getPerfilDeOperador("1");
+        if(rawcajero.getCount() == 0){
+            // Show message
+            showMessage("Error", "Cajero not found");
+            return;
+        }
+
+        Cursor rawinformatico =  mDataBaseHelper.getPerfilDeOperador("4");
+        if(rawinformatico.getCount() == 0){
+            // Show message
+            showMessage("Error", "Informatico not found");
+            return;
+        }
+
+
+        while (rawcajero.moveToNext()){
+            String descripcion = rawcajero.getString(0);
+            String estado = rawcajero.getString(1);
+            String hayqueborrarlo = rawcajero.getString(2);
+
+            cajero.setDescripcion(descripcion);
+            cajero.setNemo("Cajero");
+            cajero.setContrasenha("9999");
+            cajero.setEstado(estado);
+            cajero.setCodPerfil("1");
+            cajero.setHayQueBorrarlo(hayqueborrarlo);
+        }
+
+        while (rawinformatico.moveToNext()){
+            String descripcion = rawinformatico.getString(0);
+            String estado = rawinformatico.getString(1);
+            String hayqueborrarlo = rawinformatico.getString(2);
+
+            informatico.setDescripcion(descripcion);
+            informatico.setNemo("Informático");
+            informatico.setContrasenha("9937");
+            informatico.setEstado(estado);
+            informatico.setCodPerfil("1");
+            informatico.setHayQueBorrarlo(hayqueborrarlo);
+        }
     }
 
     //Button one

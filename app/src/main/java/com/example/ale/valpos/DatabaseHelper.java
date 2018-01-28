@@ -164,7 +164,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-
+    */
     public boolean insertOperator(Operador operador){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentvalues = new ContentValues();
@@ -172,8 +172,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentvalues.put(COL_OPERADORES_NEMO, operador.getNemo());
         contentvalues.put(COL_OPERADORES_CONTRASENHA, operador.getContrasenha());
         contentvalues.put(COL_OPERADORES_ESTADO, operador.getEstado());
-        contentvalues.put(COL_OPERADORES_CODPERFIL, operador.getCodperfil());
-        contentvalues.put(COL_OPERADORES_HAYQUEBORRARLO, operador.getHayqueborrarlo());
+        contentvalues.put(COL_OPERADORES_CODPERFIL, operador.getCodPerfil());
+        contentvalues.put(COL_OPERADORES_HAYQUEBORRARLO, operador.getHayQueBorrarlo());
         long row_id_or_failed_to_insert = db.insert(TABLE_OPERADORES, null, contentvalues);
 
         if(row_id_or_failed_to_insert == -1)
@@ -181,7 +181,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         else
             return true;
     }
-    */
+
 
     public boolean insertOperadorPerfil(OperadoresPerfiles operperfil){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -234,6 +234,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
         return res;
     }
+    */
 
     public Cursor getPerfilDeOperador(String codperfil){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -249,6 +250,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return perfilres;
     }
 
+    /*
     //Pasar Codigo Operador como parámetro
     public Cursor getCuentas(){
         SQLiteDatabase db = this.getWritableDatabase();
