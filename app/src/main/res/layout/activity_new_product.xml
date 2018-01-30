@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6e6e6"
+    tools:context="com.example.ale.valpos.NewProductActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/CodPluTxtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Código PLU"
+            android:textAlignment="center" />
+
+        <EditText
+            android:id="@+id/DescripcEditTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Descripción del producto" />
+
+        <EditText
+            android:id="@+id/CantidEditTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Cantidad en existencia" />
+
+        <CheckBox
+            android:id="@+id/PesajeChckBx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Es de pesaje" />
+
+        <CheckBox
+            android:id="@+id/RebajaChckBx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Es de rebaja" />
+
+        <CheckBox
+            android:id="@+id/LottoChckBx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Es lotto" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/InsertNewCheckBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:text="Insert New Product" />
+
+
+</RelativeLayout>

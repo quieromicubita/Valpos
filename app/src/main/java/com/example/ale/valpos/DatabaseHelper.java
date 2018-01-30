@@ -54,6 +54,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public final static String COL_CUENTAS_CANTIMPRESIONESCOCINA = "CantImpresionesEnCocina";
     public final static String COL_CUENTAS_SECUENCIAL = "Secuencial";
 
+    //Tabla PLUs
+    public final static String TABLE_PLUS = "PLUs";
+    public final static String COL_CODPLU = "CodPLU";
+    public final static String COL_DESCRIPCION = "Descripcion";
+    public final static  String COL_PVP = "PVP";
+    public final static  String COL_BARCODE = "BarCode";
+    public final static  String COL_CODDPTO = "CodDpto";
+    public final static  String COL_ESVARIABLESUPVP = "EsVariableSuPVP";
+    public final static String COL_HAYQUEBORRARLO = "HayQueBorrarlo";
+    public final static String COL_ESDEPESAJE = "EsDePesaje";
+    public final static  String COL_CODDPTODEMENU = "CodDptoDeMenu";
+    public final static  String COL_CODAREBAJA = "CodARebaja";
+    public final static String COL_EXISTENCIA = "Existencia";
+    public final static String COL_ESFRACCIONABLE = "EsFraccionable";
+    public final static String COL_ESDEREBAJA = "EsDeRebaja";
+    public final static String COL_ESLOTTO = "EsLotto";
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -61,6 +78,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+
+        String CREATE_TBL_PLUS = ("CREATE TABLE " + TABLE_PLUS + " ("+
+                COL_CODPLU + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_DESCRIPCION + " TEXT, " +
+                COL_PVP + " INTEGER, " +
+                COL_BARCODE + " INTEGER, " +
+                COL_CODDPTO + " INTEGER, " +
+                COL_ESVARIABLESUPVP + " INTEGER, " +
+                COL_HAYQUEBORRARLO + " INTEGER, " +
+                COL_ESDEPESAJE + " INTEGER, " +
+                COL_CODDPTODEMENU + " INTEGER, " +
+                COL_CODAREBAJA + " INTEGER, " +
+                COL_EXISTENCIA + " INTEGER, " +
+                COL_ESFRACCIONABLE + " INTEGER, " +
+                COL_ESDEREBAJA + " INTEGER, " +
+                COL_ESLOTTO + " INTEGER );"
+        );
+
         String CREATE_TBL_CUENTAS_ITEMS = ("CREATE TABLE " + TABLE_CUENTAS_ITEMS + " (" +
                 COL_CUENTAS_IDX + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COL_CUENTAS_NUMCUENTA + " INTEGER, " +
@@ -105,6 +140,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(CREATE_TBL_OPERADORES);
         db.execSQL(CREATE_TBL_OPERADORES_PERFILES);
         db.execSQL(CREATE_TBL_CUENTAS_ITEMS);
+        db.execSQL(CREATE_TBL_PLUS);
     }
 
     @Override
@@ -113,6 +149,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_OPERADORES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PERFILES_OPERADORES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_CUENTAS_ITEMS);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PLUS);
 
         //Recreate table
         onCreate(db);
@@ -128,6 +165,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 null
         );
         if(res.getCount() <= 0)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertPLUs(PLUs plus){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentvalues = new ContentValues();
+        contentvalues.put(COL_CODPLU, plus.getCodPLU());
+        contentvalues.put(COL_DESCRIPCION, plus.getDescripcion());
+        contentvalues.put(COL_PVP, plus.getPVP());
+        contentvalues.put(COL_BARCODE, plus.getBarCode());
+        contentvalues.put(COL_CODDPTO, plus.getCodDpto());
+        contentvalues.put(COL_ESVARIABLESUPVP, plus.getEsVariableSuPVP());
+        contentvalues.put(COL_HAYQUEBORRARLO, plus.getHayQueBorrarlo());
+        contentvalues.put(COL_ESDEPESAJE, plus.getEsDePesaje());
+        contentvalues.put(COL_CODDPTODEMENU, plus.getCodDptoDeMenu());
+        contentvalues.put(COL_CODAREBAJA, plus.getCodARebaja());
+        contentvalues.put(COL_EXISTENCIA, plus.getExistencia());
+        contentvalues.put(COL_ESFRACCIONABLE, plus.getEsFraccionable());
+        contentvalues.put(COL_ESDEREBAJA, plus.getEsDeRebaja());
+        contentvalues.put(COL_ESLOTTO, plus.getEsLotto());
+
+        long row_id_or_failed_to_insert = db.insert(TABLE_PLUS, null, contentvalues);
+
+        if(row_id_or_failed_to_insert == -1)
             return false;
         else
             return true;

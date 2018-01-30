@@ -255,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
         UnCuentasItems.setPVP("8");
         UnCuentasItems.setImpuesto("20");
         UnCuentasItems.setImporte("9");
-        UnCuentasItems.setEstado1("8");
+        UnCuentasItems.setEstado1("Abierta");
         UnCuentasItems.setEstado2("3");
         UnCuentasItems.setCodModificador("16");
         UnCuentasItems.setCodPCPOSRebaja("26");
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
         DosCuentasItems.setPVP("8");
         DosCuentasItems.setImpuesto("20");
         DosCuentasItems.setImporte("3");
-        DosCuentasItems.setEstado1("8");
+        DosCuentasItems.setEstado1("En Curso");
         DosCuentasItems.setEstado2("3");
         DosCuentasItems.setCodModificador("16");
         DosCuentasItems.setCodPCPOSRebaja("20");
@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity {
         TresCuentasItems.setPVP("8");
         TresCuentasItems.setImpuesto("202");
         TresCuentasItems.setImporte("95");
-        TresCuentasItems.setEstado1("8");
+        TresCuentasItems.setEstado1("Cerrada");
         TresCuentasItems.setEstado2("3");
         TresCuentasItems.setCodModificador("162");
         TresCuentasItems.setCodPCPOSRebaja("26");
@@ -519,7 +519,7 @@ public class MainActivity extends AppCompatActivity {
                         operador.setContrasenha(entraCodigoTxtView.getText().toString());
                         Cursor rawopername = mDataBaseHelper.getNameOfOperator(operador);
                         if(rawopername.getCount() == 0){
-                            showMessage("Error", "Name not found");
+                            showMessage("Acces not granted", "No such code registered");
                             return;
                         }
 

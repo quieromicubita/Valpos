@@ -112,6 +112,10 @@ public class BarcodeActivity extends AppCompatActivity implements ZXingScannerVi
     @Override
     public void handleResult(Result result) {
         final String scanResult = result.getText();
+        Intent nuevacuenta = new Intent(getApplicationContext(), NewProductActivity.class);
+        nuevacuenta.putExtra("NEWCODEPLU", scanResult);
+        startActivity(nuevacuenta);
+        /*
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Scan result");
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
@@ -130,5 +134,6 @@ public class BarcodeActivity extends AppCompatActivity implements ZXingScannerVi
         builder.setMessage(scanResult);
         AlertDialog alert = builder.create();
         alert.show();
+        */
     }
 }
