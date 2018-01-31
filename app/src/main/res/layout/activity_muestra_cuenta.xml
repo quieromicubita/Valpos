@@ -11,9 +11,11 @@
     <TextView
         android:id="@+id/MuestraCuentaTextView"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#6e7f80"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:text="Muestra Cuenta"
+        android:textColor="@color/cardview_light_background"
+        android:gravity="center"
         android:textAlignment="center"
         android:textSize="13sp" />
 
@@ -28,7 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="0dp"
             android:padding="0dp"
-            android:text="Scan Code"
+            android:text="Scan Barcode"
             android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/ListaItemsLstView" />
@@ -39,11 +41,14 @@
             android:layout_height="match_parent"
             android:layout_margin="0dp"
             android:layout_marginBottom="232dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="#e6e6e6"
             app:layout_constraintBottom_toTopOf="@+id/ScanBrCdBtn"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

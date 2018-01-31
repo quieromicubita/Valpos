@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Valpos</string>
+    <string-array name="ordenarcuentas">
+        <item>Ordenar cuentas...</item>
+        <item>Más recientes</item>
+        <item>Más antiguas</item>
+        <item>Mayor importe</item>
+        <item>Menor importe</item>
+        <item>Abiertas</item>
+        <item>Cerradas</item>
+        <item>Menor cantidad de items</item>
+        <item>Mayor cantidad de items</item>
+    </string-array>
 </resources>

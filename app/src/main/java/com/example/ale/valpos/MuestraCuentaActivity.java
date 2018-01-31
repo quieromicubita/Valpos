@@ -27,7 +27,7 @@ public class MuestraCuentaActivity extends AppCompatActivity {
         cuentasItems = new CuentasItems();
         muestraCuentaTxtView = findViewById(R.id.MuestraCuentaTextView);
         lcOperador = new Operador();
-        String idx = getIntent().getStringExtra("IDX");
+        String idx = getIntent().getStringExtra("CUENTAIDX");
         lcOperador.setNemo(getIntent().getStringExtra("NOMBREOPERADOR"));
         cuentasItems = new CuentasItems(idx);
         scanBrCdBtn = findViewById(R.id.ScanBrCdBtn);
@@ -52,7 +52,7 @@ public class MuestraCuentaActivity extends AppCompatActivity {
             cuentasItems.setBarCode(items.getString(13));
         }
 
-        final String item [] = new String[]{"Cuenta " + cuentasItems.getIdx(),
+        final String item [] = new String[]{
                 "Account number "+ cuentasItems.getNumCuenta(),
                 "Item number " + cuentasItems.getNumItem(),
                 "PLU Code " + cuentasItems.getCodPLU(),
@@ -80,7 +80,6 @@ public class MuestraCuentaActivity extends AppCompatActivity {
                 new View.OnClickListener(){
                     @Override
                     public void onClick(View v){
-                        Toast.makeText(MuestraCuentaActivity.this, "Click al botón", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), BarcodeActivity.class);
                         startActivity(intent);
                     }

@@ -515,8 +515,17 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         view.startAnimation(animAlfa);
+                        try{
+                            int rawtextviewvalueint = Integer.parseInt(entraCodigoTxtView.getText().toString());
+                        }
+                        catch (Exception e){
+                            Toast.makeText(MainActivity.this, "Enter a valid code", Toast.LENGTH_LONG).show();
+                            return;
+                        }
+
+                        String rawtextviewvaluestring = entraCodigoTxtView.getText().toString();
                         Operador operador = new Operador();
-                        operador.setContrasenha(entraCodigoTxtView.getText().toString());
+                        operador.setContrasenha(rawtextviewvaluestring);
                         Cursor rawopername = mDataBaseHelper.getNameOfOperator(operador);
                         if(rawopername.getCount() == 0){
                             showMessage("Acces not granted", "No such code registered");
@@ -536,6 +545,7 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(listarcuentas);
                     }
                 }
+
         );
     }
 

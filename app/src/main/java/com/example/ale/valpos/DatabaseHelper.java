@@ -317,7 +317,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return cuentas;
     }
 
-    /*
     public boolean updateData(Operador operador){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentvalues = new ContentValues();
@@ -325,20 +324,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentvalues.put(COL_OPERADORES_NEMO, operador.getNemo());
         contentvalues.put(COL_OPERADORES_CONTRASENHA, operador.getContrasenha());
         contentvalues.put(COL_OPERADORES_ESTADO, operador.getEstado());
-        contentvalues.put(COL_OPERADORES_CODPERFIL, operador.getCodperfil());
-        contentvalues.put(COL_OPERADORES_HAYQUEBORRARLO, operador.getHayqueborrarlo());
+        contentvalues.put(COL_OPERADORES_CODPERFIL, operador.getCodOperador());
+        contentvalues.put(COL_OPERADORES_HAYQUEBORRARLO, operador.getHayQueBorrarlo());
 
         db.update(TABLE_OPERADORES, contentvalues, "CodOperador = ?",
-                new String[] {operador.getID()});
+                new String[] {operador.getCodOperador()});
         return true;
     }
 
     public Integer deleteOperator(Operador operador){
         SQLiteDatabase db = this.getWritableDatabase();
-        return db.delete(TABLE_OPERADORES, "CodOperador = ?", new String[] {operador.getID()});
+        return db.delete(TABLE_OPERADORES, "CodOperador = ?", new String[] {operador.getCodOperador()});
     }
-
-   */
 }
 
 

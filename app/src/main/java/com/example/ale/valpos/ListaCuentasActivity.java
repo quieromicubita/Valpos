@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ public class ListaCuentasActivity extends AppCompatActivity {
     Operador operadorActivo;
     TextView operadorActivoTxtView;
     DatabaseHelper lstDataBaseHelper;
+    Spinner ordenarCuentasSpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +28,16 @@ public class ListaCuentasActivity extends AppCompatActivity {
         operadorActivo.setContrasenha(contrasenha);
         operadorActivoTxtView = findViewById(R.id.OperadorActivoTxtView);
         lstDataBaseHelper = new DatabaseHelper(this);
+        ordenarCuentasSpinner = findViewById(R.id.OrdenarCuentasSpinner);
         listaCuentas();
+        ordenarCuentasSpinner();
+    }
+
+    public void ordenarCuentasSpinner(){
+        ArrayAdapter<String> ordenaCuentasAdapter = new ArrayAdapter<String>(ListaCuentasActivity.this,
+                R.layout.spinner_ordenar_cuentas, getResources().getStringArray(R.array.ordenarcuentas));
+        ordenaCuentasAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ordenarCuentasSpinner.setAdapter(ordenaCuentasAdapter);
     }
 
     public void showMessage(String title, String Message){
@@ -43,7 +54,6 @@ public class ListaCuentasActivity extends AppCompatActivity {
         if(operatorname.getCount() > 0)
             while (operatorname.moveToNext()){
                 String nameresult = operatorname.getString(0);
-                Toast.makeText(ListaCuentasActivity.this, "Welcome " + nameresult, Toast.LENGTH_SHORT).show();
                 operadorActivoTxtView.setText("Operator: " + nameresult);
                 operadorActivo.setNemo(nameresult);
             }
@@ -53,33 +63,33 @@ public class ListaCuentasActivity extends AppCompatActivity {
             Cursor res = lstDataBaseHelper.getCuentas();
             if(res.getCount() == 0){
                 // Show message
-                showMessage("Error", "No data found");
+                showMessage("Vuelve a intentar", "No se encontraron cuentas");
                 return;
             }
 
-            final String cuentas [] = new String [res.getCount()];
+            final String cuentaslstview [] = new String [res.getCount()];
+            final String cuentasidxclicked [] = new String [res.getCount()];
             int c = 0;
             while (res.moveToNext()){
-                String idx = "Cuenta " + res.getString(0) + "  Número de cuenta "
-                        + res.getString(1) + "  Items " + res.getString(2);
-                cuentas[c] = idx;
+                String cuenta = res.getString(0) + res.getString(1) +
+                        "           " + res.getString(2) + "        " + res.getString(8);
+                cuentaslstview[c] = cuenta.substring(1, cuenta.length());
+                cuentasidxclicked[c] = cuenta.substring(0,1);
                 c += 1;
 
                 operadorActivo.setCodOperador(res.getString(0));
             }
 
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cuentas);
-            ListView cuentasListView = (ListView) findViewById(R.id.CuentasListView);
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, cuentaslstview);
+            final ListView cuentasListView = findViewById(R.id.CuentasListView);
             cuentasListView.setAdapter(adapter);
 
             cuentasListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Toast.makeText(ListaCuentasActivity.this, cuentas[position], Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getApplicationContext(), MuestraCuentaActivity.class);
-                    String idX = Character.toString(cuentas[position].charAt(7));
-                    intent.putExtra("IDX", idX);
+                    intent.putExtra("CUENTAIDX", cuentasidxclicked[position]);
                     intent.putExtra("NOMBREOPERADOR", operadorActivo.getNemo());
                     startActivity(intent);
                 }
