@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/AbrirCajonItm"
+        android:title="Abrir Cajón"/>
+
+    <item
+    android:id="@+id/RefundItm"
+    android:title="Refund"/>
+
+    <item
+    android:id="@+id/OperacionsAdminsItm"
+    android:title="Operaciones Administrativas"/>
+
+    <item
+    android:id="@+id/AnulCheckItm"
+    android:title="Anular Cheque"/>
+
+    <item
+    android:id="@+id/OtrasOperItm"
+    android:title="Otras Operaciones"/>
+
+    <item
+    android:id="@+id/CerrarTurnoItm"
+    android:title="Cerrar Turno"/>
+
+    <item
+    android:id="@+id/ReportesItm"
+    android:title="Imprimir Cheque"/>
+
+    <item
+    android:id="@+id/ActivarOperItm"
+    android:title="Activar Operador"/>
+
+    <item
+    android:id="@+id/VentaDirectItm"
+    android:title="Venta Directa"/>
+
+    <item
+    android:id="@+id/MesaItm"
+    android:title="Mesa"/>
+
+    <item
+    android:id="@+id/ChequeItm"
+    android:title="Cheque"/>
+
+</menu>

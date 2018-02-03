@@ -5,10 +5,13 @@ import android.database.Cursor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +21,7 @@ public class ListaCuentasActivity extends AppCompatActivity {
     TextView operadorActivoTxtView;
     DatabaseHelper lstDataBaseHelper;
     Spinner ordenarCuentasSpinner;
+    Button optionsMenuBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +33,29 @@ public class ListaCuentasActivity extends AppCompatActivity {
         operadorActivoTxtView = findViewById(R.id.OperadorActivoTxtView);
         lstDataBaseHelper = new DatabaseHelper(this);
         ordenarCuentasSpinner = findViewById(R.id.OrdenarCuentasSpinner);
+        optionsMenuBtn = findViewById(R.id.OptionsMenuBtn);
         listaCuentas();
         ordenarCuentasSpinner();
+        muestraOpciones();
+    }
+
+    public void muestraOpciones(){
+        optionsMenuBtn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        PopupMenu optionspopup = new PopupMenu(ListaCuentasActivity.this, optionsMenuBtn);
+                        optionspopup.getMenuInflater().inflate(R.menu.options_menu, optionspopup.getMenu());
+                        optionspopup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener(){
+                            public boolean onMenuItemClick(MenuItem item){
+                                Toast.makeText(ListaCuentasActivity.this, item.getTitle(), Toast.LENGTH_LONG).show();
+                                return true;
+                            }
+                        });
+                        optionspopup.show();
+                    }
+                }
+        );
     }
 
     public void ordenarCuentasSpinner(){
